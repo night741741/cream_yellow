@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶油黄+浅绿 | 温柔治愈</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #FFF8E7;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 40px auto;
+        background: linear-gradient(135deg, #FFFFFF 0%, #FFFDE7 50%, #F1F8E9 100%);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(144, 202, 144, 0.15);
+        border: 1px solid rgba(165, 214, 167, 0.3);
+    }
+
+    .motivation {
+        height: 100px;
+        width: 100px;
+        margin: 30px auto;
+        background: transparent;
+    }
+
+    .loader {
+        scale: 3;
+        height: 50px;
+        width: 40px;
+        background: transparent;
+    }
+
+    .box {
+        position: relative;
+        opacity: 0;
+        left: 10px;
+    }
+
+    .side-left {
+        position: absolute;
+        background: linear-gradient(135deg, #A5D6A7, #81C784);
+        width: 19px;
+        height: 5px;
+        transform: skew(0deg, -25deg);
+        top: 14px;
+        left: 10px;
+    }
+
+    .side-right {
+        position: absolute;
+        background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+        width: 19px;
+        height: 5px;
+        transform: skew(0deg, 25deg);
+        top: 14px;
+        left: -9px;
+    }
+
+    .side-top {
+        position: absolute;
+        background: linear-gradient(135deg, #DCEDC8, #C8E6C9);
+        width: 20px;
+        height: 20px;
+        rotate: 45deg;
+        transform: skew(-20deg, -20deg);
+    }
+
+    .box-1 {
+        animation: from-left 4s infinite;
+    }
+
+    .box-2 {
+        animation: from-right 4s infinite;
+        animation-delay: 1s;
+    }
+
+    .box-3 {
+        animation: from-left 4s infinite;
+        animation-delay: 2s;
+    }
+
+    .box-4 {
+        animation: from-right 4s infinite;
+        animation-delay: 3s;
+    }
+
+    @keyframes from-left {
+        0% {
+            z-index: 20;
+            opacity: 0;
+            translate: -20px -6px;
+        }
+
+        20% {
+            z-index: 10;
+            opacity: 1;
+            translate: 0px 0px;
+        }
+
+        40% {
+            z-index: 9;
+            translate: 0px 4px;
+        }
+
+        60% {
+            z-index: 8;
+            translate: 0px 8px;
+        }
+
+        80% {
+            z-index: 7;
+            opacity: 1;
+            translate: 0px 12px;
+        }
+
+        100% {
+            z-index: 5;
+            translate: 0px 30px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes from-right {
+        0% {
+            z-index: 20;
+            opacity: 0;
+            translate: 20px -6px;
+        }
+
+        20% {
+            z-index: 10;
+            opacity: 1;
+            translate: 0px 0px;
+        }
+
+        40% {
+            z-index: 9;
+            translate: 0px 4px;
+        }
+
+        60% {
+            z-index: 8;
+            translate: 0px 8px;
+        }
+
+        80% {
+            z-index: 7;
+            opacity: 1;
+            translate: 0px 12px;
+        }
+
+        100% {
+            z-index: 5;
+            translate: 0px 30px;
+            opacity: 0;
+        }
+    }
+
+    .text_box {
+        text-align: center;
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        background: transparent;
+        border-bottom: 2px solid rgba(165, 214, 167, 0.3);
+    }
+
+    .text_box h1 {
+        text-align: center;
+        font-size: 28px;
+        background: linear-gradient(90deg, #558B2F, #66BB6A, #81C784);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .links-grid {
+        margin-top: 40px;
+        padding-top: 20px;
+        background: transparent;
+        border-top: 1px solid rgba(165, 214, 167, 0.2);
+    }
+
+    .links-grid h2 {
+        color: #558B2F;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        background: transparent;
+    }
+
+    .link-card {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 685px;
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    .button {
+        height: 90px;
+        width: 160px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        text-decoration: none;
+        outline: none;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(144, 202, 144, 0.25);
+    }
+
+    .type1 span {
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #66BB6A, #81C784);
+        color: #FFFFFF;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(0px) scale(1.05);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type1::after {
+        content: "→";
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #81C784, #A5D6A7);
+        color: #FFFFFF;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(90px);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type1:hover span {
+        transform: translateY(-90px) scale(0) rotate(90deg);
+    }
+    .type1:hover::after {
+        transform: translateY(0) scale(1.05);
+    }
+
+    .type2 span {
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #A5D6A7, #C8E6C9);
+        color: #33691E;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(0px) scale(1.05);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type2::after {
+        content: "›";
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #C8E6C9, #DCEDC8);
+        color: #33691E;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(90px);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type2:hover span {
+        transform: translateY(-90px) scale(0) rotate(90deg);
+    }
+    .type2:hover::after {
+        transform: translateY(0) scale(1.05);
+    }
+
+    .type3 span {
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #81C784, #A5D6A7);
+        color: #FFFFFF;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(0px) scale(1.05);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type3::after {
+        content: "→";
+        height: 90px;
+        width: 160px;
+        background: linear-gradient(135deg, #A5D6A7, #C8E6C9);
+        color: #33691E;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translateY(90px);
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .type3:hover span {
+        transform: translateY(-90px) scale(0) rotate(90deg);
+    }
+    .type3:hover::after {
+        transform: translateY(0) scale(1.05);
+    }
+</style>
+
+<body>
+    <div class="container">
+        
+        <div class="motivation">
+            <div class="loader">
+                <div class="box box-1">
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                    <div class="side-top"></div>
+                </div>
+                <div class="box box-2">
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                    <div class="side-top"></div>
+                </div>
+                <div class="box box-3">
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                    <div class="side-top"></div>
+                </div>
+                <div class="box box-4">
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                    <div class="side-top"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text_box">
+            <h1 id="text"></h1>
+        </div>
+
+        <script>
+        let arrword=[
+            "生活明朗，万物可爱。",
+            "愿你眼中有星辰，心中有山海。",
+            "慢慢来，比较快。",
+            "心若向阳，无畏悲伤。",
+            "人间值得，未来可期。",
+            "温柔且坚定，知足且上进。",
+            "时光不语，静待花开。",
+            "你若盛开，清风自来。",
+            "岁月静好，现世安稳。",
+            "心怀热爱，平凡的日子也会泛着光。",
+            "愿所有美好如期而至。",
+            "把日子过成诗，简单而精致。",
+            "保持热爱，奔赴山海。",
+            "心有光芒，必有远方。",
+            "微笑拥抱每一天，做像向日葵般温暖的人。",
+            "愿你历尽千帆，归来仍是少年。",
+            "岁月安然，浅笑前行。",
+            "你好，世界",
+            "两情若是久长时，又岂在朝朝暮暮",
+            "衣带渐宽终不悔，为伊消得人憔悴。",
+            "Together_with_you_I_want_to_idle_away_the_time.",
+            "人生若只如初见，何事秋风悲画扇。",
+            "此情无计可消除，才下眉头，却上心头。",
+            "If_I_know_what_love_is, it_is_because_of_you.",
+            "愿此行，终抵群星",
+            "昨夜西风凋碧树，独上高楼，望尽天涯路。",
+            "众里寻他千百度，蓦然回首，那人却在灯火阑珊处。",
+            "爱，就像这酣梦深埋,诀别如繁花盛开。",
+            "酸甜苦辣都无妨，起码味道自己尝。",
+            "童话还没有兑现，却需要说再见。",
+            "一杯敬故乡 一杯敬远方",
+            "别怕 未来的模样,辜负 曾经的凝望",
+            "我想我还有不舍,多想时光停在这一刻",
+            "想要一個人聽海風，想要一個人看晚空。",
+            "Someday_I_make_a_dream_unchained.",
+        ]
+        function Randword(){
+            randindx=Math.floor(Math.random()*arrword.length);
+            const randword=arrword[randindx];
+            const textElement = document.getElementById("text");
+            textElement.innerText = "";
+            
+            let index = 0;
+            function typeWriter() {
+                if (index < randword.length) {
+                    textElement.innerText += randword.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        }
+        Randword();
+    </script>
+
+        <div class="links-grid">
+            <h2>🌿 学习链接</h2>
+            <div class="link-card">
+                <a href="https://leetcode.cn/" target="_blank" class="button type1">
+                    <span>力扣</span>
+                </a>
+                 <a href="https://leetcode.cn/discuss/post/3141566/ru-he-ke-xue-shua-ti-by-endlesscheng-q3yd/" target="_blank" class="button type2">
+                    <span>灵神题单</span>
+                </a>
+                <a href="https://www.luogu.com.cn/" target="_blank" class="button type3">
+                    <span>洛谷</span>
+                </a>
+                <a href="https://pintia.cn/" target="_blank" class="button type1">
+                    <span>PTA</span>
+                </a>
+                <a href="https://codeforces.com/" target="_blank" class="button type2">
+                    <span>Codeforces</span>
+                </a>
+                <a href="https://www.lanqiao.cn/" target="_blank" class="button type3">
+                    <span>蓝桥云课</span>
+                </a>
+                <a href="https://www.acwing.com/" target="_blank" class="button type1">
+                   <span>AcWing</span>
+                </a>
+                <a href="https://www.nowcoder.com/" target="_blank" class="button type2">
+                   <span>牛客</span>
+                </a>
+                <a href="https://docs.geeksman.com/" target="_blank" class="button type3">
+                   <span>极客侠</span>
+                </a>
+                <a href="https://www.runoob.com/" target="_blank" class="button type1">
+                   <span>菜鸟教程</span>
+                </a>
+                <a href="https://oi-wiki.org/" target="_blank" class="button type2">
+                   <span>OI Wiki</span>
+                </a>
+                <a href="https://docs.streamlit.io/" target="_blank" class="button type3">
+                    <span>streamlit</span>
+                </a>
+                <a href="https://roadmap.sh/" target="_blank" class="button type1">
+                   <span>学习路线</span>
+                </a>
+                <a href="https://www.codefather.cn/" target="_blank" class="button type2">
+                   <span>编程导航</span>
+                </a>
+                <a href="https://developer.mozilla.org/en-US/" target="_blank" class="button type3">
+                   <span>前端</span>
+                </a>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
